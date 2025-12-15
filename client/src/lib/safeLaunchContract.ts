@@ -399,7 +399,7 @@ export async function getAllTokens(): Promise<LiveToken[]> {
 }
 
 const CONTRACT_DEPLOY_BLOCK = 39400000n;
-const MAX_BLOCK_RANGE = 40000n;
+const MAX_BLOCK_RANGE = 2000n;
 
 async function getTokenCreationBlock(tokenId: number): Promise<bigint | null> {
   try {
@@ -473,7 +473,7 @@ export async function getBuyEvents(tokenId: number): Promise<Array<{
           tokenId: BigInt(tokenId),
         },
         fromBlock,
-        toBlock: 'latest',
+        toBlock: currentBlock,
       });
 
       return logs.map(log => ({

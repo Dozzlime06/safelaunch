@@ -1,6 +1,6 @@
 {
   "installCommand": "npm install --legacy-peer-deps",
-  "buildCommand": "npx vite build --config vite.config.ts",
+  "buildCommand": "npx vite build --config vite.config.vercel.ts",
   "outputDirectory": "dist/public",
   "rewrites": [
     { "source": "/.well-known/farcaster.json", "destination": "/api/farcaster" },
