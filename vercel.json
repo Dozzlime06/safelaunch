@@ -1,5 +1,18 @@
 {
   "installCommand": "npm install --legacy-peer-deps",
   "buildCommand": "cd client && npx vite build --outDir ../dist",
-  "outputDirectory": "dist"
+  "outputDirectory": "dist",
+  "rewrites": [
+    { "source": "/.well-known/farcaster.json", "destination": "/api/farcaster" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Frame-Options", "value": "" },
+        { "key": "Content-Security-Policy", "value": "frame-ancestors 'self' https://warpcast.com https://*.warpcast.com https://*.farcaster.xyz" }
+      ]
+    }
+  ]
 }
